@@ -1,6 +1,8 @@
+/* Estilos generales */
 body {
     font-family: 'Nunito', cursive;
-    background: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+    background: url('bg.png') no-repeat center center fixed; /* Imagen de fondo por defecto */
+    background-size: cover; /* Asegurar que la imagen cubra toda la pantalla */
     color: #5A4A4A;
     margin: 0;
     padding: 20px;
@@ -11,7 +13,7 @@ body {
 }
 
 .container {
-    background-color: #FFE9E9;
+    background-color: #ffe9e9d0;
     border-radius: 20px;
     padding: 20px;
     max-width: 800px;
@@ -44,11 +46,10 @@ h2 {
 }
 
 .hamster-house {
-    background-color: #F8EDED;
+    background-color: #f8ededcc;
     border-radius: 15px;
     padding: 20px;
     min-height: 200px;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,7 +79,6 @@ h2 {
     justify-content: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
     border: 3px solid transparent;
 }
 
@@ -98,7 +98,7 @@ h2 {
     font-size: 1.5em;
     margin: 20px 0;
     min-height: 40px;
-    color: #000000;
+    color: #000;
 }
 
 .score {
@@ -132,10 +132,9 @@ button:active {
 }
 
 @keyframes float {
-
     0%,
     100% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 
     50% {
@@ -155,12 +154,60 @@ button:active {
     }
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
+/* Estilos para overlays (bienvenida, memoria y final) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(59, 59, 59, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
+.overlay-content {
+    text-align: center;
+    padding: 20px;
+    background: #FFE9E9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.memory-card {
+    background-color: #fff;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.memory-card img {
+    width: 80%;
+    height: 80%;
+}
+
+.memory-card.flipped {
+    background-color: #FFD1D1;
+}
+
+@media (max-width: 768px) {
     .food-options {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -171,10 +218,6 @@ button:active {
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em;
-    }
-
     .food-options {
         grid-template-columns: repeat(2, 1fr);
     }
