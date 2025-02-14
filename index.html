@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐹💘🐿️</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>¡Dan, cuida al Hamster! 🐹💖</h1>
+        <div class="feedback" id="feedback">Tu misión es cuidar a este pequeñin y todo esfuerzo tiene recompensas</div>
+        <div class="score">Puntos: <span id="score">0</span></div>
+        <div class="game-area">
+            <div class="hamster-house">
+                <img src="https://em-content.zobj.net/source/microsoft-teams/363/hamster_1f439.png" alt="Hamster"
+                    id="hamster" class="float pastel">
+            </div>
+            <div class="food-options">
+                <div class="food-item" data-food="zanahoria" data-type="bueno">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/carrot_1f955.png" alt="Zanahoria">
+                </div>
+                <div class="food-item" data-food="manzana" data-type="bueno">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/red-apple_1f34e.png" alt="Manzana">
+                </div>
+                <div class="food-item" data-food="brocoli" data-type="bueno">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/broccoli_1f966.png" alt="Brocoli">
+                </div>
+                <div class="food-item" data-food="donut" data-type="malo">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/doughnut_1f369.png" alt="Donut">
+                </div>
+                <div class="food-item" data-food="chocolate" data-type="malo">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/chocolate-bar_1f36b.png"
+                        alt="Chocolate">
+                </div>
+                <div class="food-item" data-food="palomitas" data-type="malo">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/popcorn_1f37f.png" alt="Palomitas">
+                </div>
+            </div>
+        </div>
+        <button id="resetButton">Reiniciar Juego</button>
+    </div>
+
+    <!-- Efecto de sonido (opcional) -->
+    <audio id="healthySound" src="healthy-sound.mp3"></audio>
+    <audio id="unhealthySound" src="unhealthy-sound.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
