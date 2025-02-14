@@ -32,19 +32,31 @@ function handleClick(e) {
     if (healthyFoods.includes(food)) {
         score += 10;
         showFeedback(`¡Buen trabajo, amor! Nuestro pequeño se siente mejor gracias a ti 🥕 +10 puntos`, '#C8E6C9');
+        // Cambiar a imagen de selección correcta
+        hamster.src = "assets/koromos/Koromo_rico.png";
         hamster.classList.add('dropped');
         playSound('healthySound');
-        setTimeout(() => hamster.classList.remove('dropped'), 500);
+        setTimeout(() => {
+            hamster.classList.remove('dropped');
+            // Restaurar imagen estándar
+            hamster.src = "assets/koromos/Koromo_normal.png";
+        }, 950); // Duración reducida a 300ms
     } else {
         score -= 5;
         showFeedback(`¡Oh no, amor! Eso no es saludable 🚨 -5 puntos`, '#FFCDD2');
+        // Cambiar a imagen de selección errónea
+        hamster.src = "assets/koromos/Koromo_malo.png";
         hamster.classList.add('shake');
         playSound('unhealthySound');
-        setTimeout(() => hamster.classList.remove('shake'), 500);
+        setTimeout(() => {
+            hamster.classList.remove('shake');
+            // Restaurar imagen estándar
+            hamster.src = "assets/koromos/Koromo_normal.png";
+        }, 950); // Duración reducida a 300ms
     }
     scoreEl.textContent = score;
 
-    if (score >= 50) {
+    if (score === 50) {
         setTimeout(() => {
             memoryScreen.classList.remove('hidden');
             generateMemoryGame();
@@ -147,7 +159,7 @@ function shuffleFoodItems() {
     ];
     
     // Seleccionar 5 alimentos aleatorios
-    const randomFoods = foods.sort(() => 0.5 - Math.random()).slice(0, 5);
+    const randomFoods = foods.sort(() => 0.5 - Math.random()).slice(0, 7);
     
     foodOptions.innerHTML = '';
 
