@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Nunito', cursive;
-    background: url('bg.png') no-repeat center center fixed; /* Imagen de fondo por defecto */
+    background: url('assets/bg.png') no-repeat center center fixed; /* Imagen de fondo por defecto */
     background-size: cover; /* Asegurar que la imagen cubra toda la pantalla */
     color: #5A4A4A;
     margin: 0;
