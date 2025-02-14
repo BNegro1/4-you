@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐹💘🐿️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <title>Koromo ! 🐹💘🐿️</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -14,8 +16,8 @@
     <!-- Pantalla de bienvenida -->
     <div id="welcomeScreen" class="overlay">
         <div class="overlay-content">
-            <h1 class="glitch">¡Bienvenida, Dan! 💘</h1>
-            <p>Prepárate para una aventura romántica. Ayuda a cuidar a nuestro hámster con amor y paciencia.</p>
+            <h1 class="glitch">¡Dan! 💘</h1>
+            <p>Llegó San Valentín. Ayuda a Koromo con amor y paciencia.</p>
             <button id="startButton">Comenzar</button>
         </div>
     </div>
@@ -23,43 +25,54 @@
     <!-- Pantalla de memoria -->
     <div id="memoryScreen" class="overlay hidden">
         <div class="overlay-content">
-            <h1>Memory</h1>
-            <p>Lograste llegar a la fase número 2, debes emparejar para poder continuar!</p>
+            <h1>Tap a la pantallita 🗣️</h1>
+            <p>Tap a la pantallita para emparejar los diferentes tipos de Koromos existentes.</p>
             <div id="memoryBoard" class="memory-board"></div>
-            <button id="memoryDoneButton" class="hidden">¡He terminado!</button>
         </div>
     </div>
-
     <!-- Pantalla final -->
     <div id="finalScreen" class="overlay hidden">
         <div class="overlay-content">
-            <h1>¡Amor, juntos hemos creado magia!</h1>
-            <p>Gracias por cuidar a Chispa y a mi corazón.</p>
-            <button id="restartButton">Jugar de Nuevo</button>
+            <h1 style="color: #ff6f61; font-size: 28px; text-align: center;">Danae 💘</h1>
+
+            <p class="paragraph"
+                style="font-size: 16px; color: #4a4a4a; text-align: center; line-height: 1.8; max-width: 600px; margin: 0 auto; padding: 10px;">
+                Segundo 14 de febrero viviendo contigo. Amo estos detalles, me costó pero se logró, es algo que puedo
+                demostrar para ti, en mi amor en su más refinada descripción. Yo quiero seguir una vida llena de
+                aventuras,
+                conocimientos, aprendizajes y panoramas, agradezco que me des la oportunidad, de corazón. Danae,
+                lograremos
+                lo que quieres y queremos, nunca atrás y siempre adelante. Te amo mucho, amor mío. Feliz San Valentín. -
+                W. 🐿️.
+            </p>
+
+            <button id="restartButton" style="display: block; margin: 20px auto; padding: 12px 24px; font-size: 16px; color: white; background-color: #ff6f61; 
+            border: none; border-radius: 25px; cursor: pointer; transition: background 0.3s;">
+                Jugar de Nuevo
+            </button>
         </div>
     </div>
 
+
     <main class="container">
-        <h1>Koromo 🐹</h1>
+        <h1>Feed me! 🐿️</h1>
         <div class="feedback" id="feedback">
-            Tu misión es cuidar a este pequeñín y todo esfuerzo tiene recompensas.
+            Comencemos a cuidar a Koromo, selecciona alimentos saludables para él.
         </div>
         <div class="score">Puntos: <span id="score">0</span></div>
         <section class="game-area">
-            <div class="hamster-house">
-                <img src="assets/koromos/Koromo_normal.png" alt="Hamster Chispa" id="hamster">
+            <div class="koromo-house">
+                <img src="assets/koromos/Koromo_normal.png" alt="koromo Chispa" id="koromo">
             </div>
             <div class="food-options">
                 <!-- Los food-items se generarán dinámicamente -->
             </div>
         </section>
+        <div class="score">
+            <p>¡Recuerda! a Koromo le gustan las cosas "saludables". Recibes 10 puntos por cada comida "saludable". De lo contrario, pierdes 5 puntos.</p>
+        </div>
         <button id="resetButton">Reiniciar Juego</button>
     </main>
-
-    <!-- Efectos de sonido (opcional) -->
-    <audio id="healthySound" src="healthy-sound.mp3"></audio>
-    <audio id="unhealthySound" src="unhealthy-sound.mp3"></audio>
-
     <script src="script.js"></script>
 </body>
 

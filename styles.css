@@ -23,6 +23,26 @@ body {
     overflow: hidden;
 }
 
+.container .title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #FF6F61;
+    margin-bottom: 10px;
+}
+
+.container .emoji-group {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.container .paragraph {
+    font-size: 1.2em;
+    text-align: center;
+    color: #5A4A4A;
+    margin: 10px 0;
+}
+
 h1 {
     color: #FF6F61;
     text-align: center;
@@ -45,7 +65,7 @@ h2 {
     gap: 20px;
 }
 
-.hamster-house {
+.koromo-house {
     background-color: #f8ededcc;
     border-radius: 15px;
     padding: 20px;
@@ -55,7 +75,7 @@ h2 {
     align-items: center;
 }
 
-#hamster {
+#koromo {
     width: 120px;
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -199,20 +219,26 @@ button:active {
 
 .memory-board {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas para 6 tarjetas (3x2) */
     gap: 10px;
     margin-top: 20px;
 }
 
+/* Ajuste de tamaño de las tarjetas de memoria */
 .memory-card {
+    width: 120px;
+    height: 120px;
     background-color: #fff;
-    height: 100px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     font-size: 2rem;
+    perspective: 1000px;
+    /* Opcional: borde para diferenciar las cards */
+    border: 2px solid #ddd;
+    animation: fadeIn 0.5s forwards;
 }
 
 .memory-card img {
@@ -222,6 +248,28 @@ button:active {
 
 .memory-card.flipped {
     background-color: #FFD1D1;
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+/* Animaciones para fade out e in */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Opcional: si se desea fade in para las nuevas cards al aparecer */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Clase para ocultar la imagen de la tarjeta (backface oculta) */
+.hidden-image {
+    visibility: hidden;
 }
 
 @media (max-width: 768px) {
@@ -229,7 +277,7 @@ button:active {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .hamster-house {
+    .koromo-house {
         min-height: 150px;
     }
 }
