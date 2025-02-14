@@ -13,9 +13,17 @@ const memoryBoard = document.getElementById('memoryBoard');
 const welcomeScreen = document.getElementById('welcomeScreen');
 const finalScreen = document.getElementById('finalScreen');
 
-resetButton.addEventListener('click', resetGame);
-startButton.addEventListener('click', startGame);
-restartButton.addEventListener('click', restartGame);
+// Agregar comprobaciones para asegurarse de que los elementos existen
+if (resetButton) {
+	resetButton.addEventListener('click', resetGame);
+}
+if (startButton) {
+	startButton.addEventListener('click', startGame);
+}
+if (restartButton) {
+	restartButton.addEventListener('click', restartGame);
+	// Eliminar listener duplicado si existe
+}
 document.getElementById('restartButton').addEventListener('click', function() {
     location.reload();
 });

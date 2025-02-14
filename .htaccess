@@ -1,0 +1,2 @@
+# Actualizar Permissions-Policy removiendo "interest-cohort"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
