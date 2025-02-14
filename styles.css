@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Nunito', cursive;
-    background: url('assets/bg.png') no-repeat center center fixed; /* Imagen de fondo por defecto */
+    background: url('assets/bg/bg.png') no-repeat center center fixed; /* Imagen de fondo por defecto */
     background-size: cover; /* Asegurar que la imagen cubra toda la pantalla */
     color: #5A4A4A;
     margin: 0;
@@ -60,6 +60,15 @@ h2 {
     transition: transform 0.3s ease;
     cursor: pointer;
     animation: float 3s ease-in-out infinite;
+}
+
+/* Nuevos estilos agregados para animaciones desde el script */
+.dropped {
+    transform: translateY(20px);
+}
+
+.shake {
+    animation: shake 0.5s;
 }
 
 .food-options {
@@ -152,6 +161,14 @@ button:active {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
 /* Estilos para overlays (bienvenida, memoria y final) */

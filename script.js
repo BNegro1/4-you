@@ -1,5 +1,5 @@
-const healthyFoods = ['zanahoria', 'manzana', 'brocoli'];
-const unhealthyFoods = ['donut', 'chocolate', 'palomitas'];
+const healthyFoods = ['empanada', 'fideos', 'frutilla', 'pan', 'palta', 'taco', 'queso'];
+const unhealthyFoods = ['dona', 'carne', 'maruchan', 'wafles', 'medialunaXD'];
 let score = 0;
 
 const hamster = document.getElementById('hamster');
@@ -13,10 +13,6 @@ const memoryDoneButton = document.getElementById('memoryDoneButton');
 const memoryBoard = document.getElementById('memoryBoard');
 const welcomeScreen = document.getElementById('welcomeScreen');
 const finalScreen = document.getElementById('finalScreen');
-
-document.querySelectorAll('.food-item').forEach(item => {
-    item.addEventListener('click', handleClick);
-});
 
 resetButton.addEventListener('click', resetGame);
 startButton.addEventListener('click', startGame);
@@ -85,13 +81,15 @@ function flipCard() {
         card.classList.add('flipped');
         flippedCards.push(card);
     }
-
     if (flippedCards.length === 2) {
-        checkMemoryMatch();
+        // Mostrar botón para confirmar el emparejamiento
+        memoryDoneButton.classList.remove('hidden');
     }
 }
 
 function checkMemoryMatch() {
+    // Ocultar el botón de confirmación al iniciar la verificación
+    memoryDoneButton.classList.add('hidden');
     if (flippedCards[0].dataset.food === flippedCards[1].dataset.food) {
         score += 10;
         flippedCards.forEach(card => card.classList.add('matched'));
@@ -103,7 +101,6 @@ function checkMemoryMatch() {
     }
     flippedCards = [];
     scoreEl.textContent = score;
-
     if (document.querySelectorAll('.memory-card.matched').length === memoryCards.length) {
         setTimeout(() => {
             finalScreen.classList.remove('hidden');
@@ -131,3 +128,46 @@ function playSound(soundId) {
         sound.play();
     }
 }
+
+function shuffleFoodItems() {
+    const foodOptions = document.querySelector('.food-options');
+    const foods = [
+        { name: 'carne', type: 'unhealthy', img: 'assets/carne.png' },
+        { name: 'dona', type: 'unhealthy', img: 'assets/dona.png' },
+        { name: 'empanada', type: 'healthy', img: 'assets/empanada.png' },
+        { name: 'fideos', type: 'healthy', img: 'assets/fideos.png' },
+        { name: 'frutilla', type: 'healthy', img: 'assets/frutilla.png' },
+        { name: 'maruchan', type: 'unhealthy', img: 'assets/maruchan.png' },
+        { name: 'pan', type: 'healthy', img: 'assets/pan.png' },
+        { name: 'palta', type: 'healthy', img: 'assets/palta.png' },
+        { name: 'taco', type: 'healthy', img: 'assets/taco.png' },
+        { name: 'wafles', type: 'unhealthy', img: 'assets/wafles.png' },
+        { name: 'queso', type: 'healthy', img: 'assets/queso.png' },
+        { name: 'medialunaXD', type: 'unhealthy', img: 'assets/medialunaXD.png' },
+    ];
+    
+    // Seleccionar 5 alimentos aleatorios
+    const randomFoods = foods.sort(() => 0.5 - Math.random()).slice(0, 5);
+    
+    foodOptions.innerHTML = '';
+
+    randomFoods.forEach(food => {
+        const foodItem = document.createElement('div');
+        foodItem.classList.add('food-item');
+        foodItem.dataset.food = food.name;
+        foodItem.dataset.type = food.type;
+
+        const img = document.createElement('img');
+        img.src = food.img;
+        img.alt = food.name;
+
+        foodItem.appendChild(img);
+        foodOptions.appendChild(foodItem);
+    });
+
+    document.querySelectorAll('.food-item').forEach(item => {
+        item.addEventListener('click', handleClick);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', shuffleFoodItems);
